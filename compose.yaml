@@ -1,0 +1,23 @@
+services:
+  be-better-pg:
+    image: postgres:18-alpine
+    container_name: be-better-pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - be-better-pg-data:/var/lib/postgresql/data
+    networks:
+      - be-better
+
+networks:
+  be-better:
+    name: be-better
+    driver: bridge
+
+volumes:
+  be-better-pg-data:
