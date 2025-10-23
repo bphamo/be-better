@@ -34,8 +34,8 @@ export default function DailyQuestsPage() {
 
   const toggleQuestTask = (taskIndex: number) => {
     if (!selectedQuest) return;
-    setQuests(quests.map(q => 
-      q.id === selectedQuest.id 
+    setQuests(quests.map(q =>
+      q.id === selectedQuest.id
         ? { ...q, current: q.current === q.target ? q.current - 1 : q.current + 1 }
         : q
     ));
@@ -71,7 +71,7 @@ export default function DailyQuestsPage() {
         <div className="space-y-3">
           <h2 className="text-sm font-semibold tracking-wider text-muted-foreground">PLAN</h2>
           {planQuests.map(quest => (
-            <Card 
+            <Card
               key={quest.id}
               className="bg-card/50 border-border p-4 cursor-pointer hover:bg-card"
               onClick={() => setSelectedQuest(quest)}
@@ -93,7 +93,7 @@ export default function DailyQuestsPage() {
         <div className="space-y-3">
           <h2 className="text-sm font-semibold tracking-wider text-muted-foreground">COMPLETED</h2>
           {completedQuests.map(quest => (
-            <Card 
+            <Card
               key={quest.id}
               className="bg-card/50 border-border p-4 opacity-60"
             >
@@ -120,7 +120,7 @@ export default function DailyQuestsPage() {
               <span className="tracking-wider">QUEST INFO</span>
             </DialogTitle>
           </DialogHeader>
-          
+
           {selectedQuest && (
             <div className="space-y-6 pt-4">
               <div className="text-center">
@@ -134,12 +134,12 @@ export default function DailyQuestsPage() {
                 {Array.from({ length: selectedQuest.target / (selectedQuest.unit === "km" ? 1 : selectedQuest.target === 4 ? 1 : 10) }).map((_, i) => (
                   <div key={i} className="flex items-center justify-between p-3 border border-border rounded">
                     <div className="flex items-center gap-2">
-                      <Checkbox 
+                      <Checkbox
                         checked={i < selectedQuest.current / (selectedQuest.unit === "km" ? 1 : selectedQuest.target === 4 ? 1 : 10)}
                         onCheckedChange={() => toggleQuestTask(i)}
                       />
                       <span className="text-sm">
-                        {selectedQuest.id === "1" 
+                        {selectedQuest.id === "1"
                           ? ["Push-ups", "Sit-ups", "Squats", "Running"][i]
                           : `[INCOMPLETE] ${selectedQuest.name}`
                         }

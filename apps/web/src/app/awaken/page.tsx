@@ -32,7 +32,7 @@ export default function AwakenPage() {
               <h2 className="text-4xl font-bold text-foreground">
                 YOUR<br />AWAKENING<br />BEGINS NOW!
               </h2>
-              
+
               <p className="text-muted-foreground text-sm px-4">
                 Walk your path. Take action. Conquer.<br />Become a legend!
               </p>
@@ -40,8 +40,8 @@ export default function AwakenPage() {
 
             {/* CTA Button */}
             <div className="pt-8">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="w-full max-w-xs bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold text-lg h-14 rounded-full"
                 onClick={() => router.push("/daily-quests")}
               >
